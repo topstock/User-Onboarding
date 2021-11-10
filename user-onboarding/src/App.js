@@ -14,22 +14,36 @@ const initialFormValues = {
 }
 
 const initialFormErrors = {
-  first_name: '',
-  last_name: '',
+  firstName: '',
+  lastName: '',
   email: '',
   password: ''
 }
 
 const initialDisabled = true;
 
-function App() {
+const App = () => {
   const [users, setUsers] = useState(initialUsers);
   const [formValues, SetFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  
+  const inputChange = () => {
+    
+  }
+
+  const formSubmit = () => {
+    //axios.post(``)
+  }
+
   return (
     <div className="App">
-      <Form />
+      <Form 
+        values={formValues}
+        change={inputChange}
+        submit={formSubmit}
+        errors={formErrors}
+      />
 
     </div>
   );

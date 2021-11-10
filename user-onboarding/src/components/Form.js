@@ -78,9 +78,7 @@ const Form = (props) => {
       onChange={onChange}
       checked={values.terms}
     />
-      <p>I have read and agree to the 
-        <a href="#">Terms of Service</a>
-      </p>
+      <p>I have read and agree to the Terms of Service</p>
     </label>  
   
   </div>
