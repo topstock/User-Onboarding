@@ -5,8 +5,8 @@ import Form from './components/Form';
 const initialUsers = [];
 const initialFormValues = {
   /// text inputs
-  first_name: '',
-  last_name: '',
+  firstName: '',
+  lastName: '',
   email: '',
   password: '',
   //checkbox
