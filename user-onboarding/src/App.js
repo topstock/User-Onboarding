@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Form from './components/Form';
-
+import axios from 'axios';
 const initialUsers = [];
 const initialFormValues = {
   /// text inputs
@@ -24,12 +24,15 @@ const initialDisabled = true;
 
 const App = () => {
   const [users, setUsers] = useState(initialUsers);
-  const [formValues, SetFormValues] = useState(initialFormValues);
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
   
-  const inputChange = () => {
-    
+  axios.get(`https://reqres.in/api/users`)
+    .then( resp => console.log(resp))
+
+  const inputChange = (name, value) => {
+    setFormValues({...formValues, [name]: value})
   }
 
   const formSubmit = () => {

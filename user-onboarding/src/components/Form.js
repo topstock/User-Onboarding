@@ -52,7 +52,7 @@ const Form = (props) => {
     <label name="name">Last Name&nbsp;
       <input
         type="text"
-        name="name"
+        name="lastName"
         maxLength="40"
         onChange={onChange}
         value={values.lastName}
