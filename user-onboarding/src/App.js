@@ -85,12 +85,14 @@ const App = () => {
         disabled={disabled}
         errors={formErrors}
       />
-    {users.map( user => (
-        <div className="userBox" key={user.id}>
-          <p>{user.first_name} {user.last_name}</p>
-          <p>{user.email}</p>
-        </div>
-    ))}
+      <div id="allUsers">
+        {users.map( user => (
+          <div className="userBox" key={user.id}>
+            <p>{user.first_name} {user.last_name}</p>
+            <p>{user.email}</p>
+          </div>
+        ))}
+      </div>
     </div>
    );
 }
