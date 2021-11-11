@@ -25,7 +25,7 @@ const Form = (props) => {
   <form className='form container' onSubmit={onSubmit}>
     <div className='formSubmitErrors'>
     <h2>Add User</h2>
-      <button disabled={disabled}>submit</button>
+      <button id="submitBtn" disabled={disabled}>submit</button>
       <div className="Errors">
         <div>{errors.first_name}</div>  
         <div>{errors.last_name}</div>
