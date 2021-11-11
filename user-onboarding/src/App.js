@@ -8,8 +8,8 @@ import * as yup from 'yup';
 const initialUsers = [];
 const initialFormValues = {
   /// text inputs
-  firstName: '',
-  lastName: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
   //checkbox
@@ -17,8 +17,8 @@ const initialFormValues = {
 }
 
 const initialFormErrors = {
-  firstName: '',
-  lastName: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: ''
 }
@@ -26,9 +26,9 @@ const initialFormErrors = {
 const initialDisabled = true;
 
 const App = () => {
-  const [users, setUsers] = useState(initialUsers);
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [users, setUsers] = useState(initialUsers);
   const [disabled, setDisabled] = useState(initialDisabled);
   
 
@@ -37,26 +37,21 @@ const App = () => {
     axios.get('https://reqres.in/api/users')
     
       .then(res => {
-        console.log(res.data);
         setUsers(res.data.data);
       })
       .catch(err => console.error(err))
   }
 
-
-  const postNewUser = newUser => {
-    axios.post('https://reqres.in/api/users', newUser)
+  const formSubmit = () => {
+    axios.post('https://reqres.in/api/users', formValues)
       .then( res => {
-        setUsers([res.data.data, ...users]);
+        setUsers([res.data, ...users]);
       })
       .catch(err => console.error(err) )
-      .finally( () => setFormValues(initialFormValues) )
-  }
-
-
-  const formSubmit = () => {
-    postNewUser();
-
+      .finally( () => {
+        setFormValues(initialFormValues) ;
+    }
+      )
   }
 
   const validate = (name, value) => {
@@ -69,7 +64,7 @@ const App = () => {
 
   const inputChange = (name, value) => {
     validate(name, value);
-    setFormValues({...formValues, [name]: value})
+    setFormValues({...formValues, [name]: value});
   }
 
   useEffect(() => {
@@ -90,8 +85,14 @@ const App = () => {
         disabled={disabled}
         errors={formErrors}
       />
+    {users.map( user => (
+        <div className="userBox" key={user.id}>
+          <p>{user.first_name} {user.last_name}</p>
+          <p>{user.email}</p>
+        </div>
+    ))}
     </div>
-  )
+   );
 }
 
 export default App;

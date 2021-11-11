@@ -5,3 +5,17 @@ form {
 input {
   display: block;
 }
+
+.userBox {
+  background-color: beige;
+  width: 30vw;
+  margin: 0 10vw;
+}
+
+.userbox p {
+  background-color: lightcyan;
+}
+
+.userBox p:first-child {
+  background-color: lightcoral;
+}

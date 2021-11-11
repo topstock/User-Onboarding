@@ -27,8 +27,8 @@ const Form = (props) => {
     <h2>Add User</h2>
       <button disabled={disabled}>submit</button>
       <div className="Errors">
-        <div>{errors.firstName}</div>  
-        <div>{errors.lastName}</div>
+        <div>{errors.first_name}</div>  
+        <div>{errors.last_name}</div>
         <div>{errors.email}</div>
         <div>{errors.password}</div>
         <div>{errors.terms}</div>
@@ -39,23 +39,23 @@ const Form = (props) => {
 
     <h3>User Info</h3>
 
-    <label name="firstName">First Name&nbsp;
+    <label name="first_name">First Name&nbsp;
       <input
         type="text"
-        name="firstName"
+        name="first_name"
         maxLength="40"
         onChange={onChange}
-        value={values.firstName}
+        value={values.first_name}
       />
     </label>
 
     <label name="name">Last Name&nbsp;
       <input
         type="text"
-        name="lastName"
+        name="last_name"
         maxLength="40"
         onChange={onChange}
-        value={values.lastName}
+        value={values.last_name}
       />
     </label>
 
